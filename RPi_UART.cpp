@@ -23,13 +23,13 @@ void writeGPIO(char filename[], char value[]){
 }
 
 void openGPIO(){
-    writeGPIO(GPIO_SYSFS "export", GPIO_NUMBER); //<<-----------------------------------THIS IS THE PROBLEM
+    writeGPIO(GPIO_SYSFS "export", GPIO_NUMBER);
     usleep(100000); // sleep for 100ms
     writeGPIO(GPIO4_PATH "direction", "out");
 }
 
 void closeGPIO(){
- writeGPIO(GPIO_SYSFS "unexport", GPIO_NUMBER);//<<-----------------------------------THIS IS THE PROBLEM 
+ writeGPIO(GPIO_SYSFS "unexport", GPIO_NUMBER);
 }
 
 void setup(int uart0_filestream, int max ){
@@ -59,7 +59,7 @@ memset(&rx_buf[0], 0, sizeof(rx_buf));
 int n =0;
 int fd;
 fd = open(device, O_RDWR | O_NOCTTY | O_NDELAY); 
-printf("%i",fd); //serialOpen ("/dev/ttyAMA0", 9600) ;used when serial uart 
+printf("%i",fd);
 if (fd == -1) {
 std::cout << "no uart" << std::endl;
 return (-1);
